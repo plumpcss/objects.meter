@@ -12,7 +12,7 @@
 //
 
 //    Predefine the variables below in order to alter and enable specific features.
-$plump-meter-height:                $plump-base-spacing-unit;
+$plump-meter-height:                $plump-base-spacing-unit !default;
 $plump-meter-background:            #eee !default;
 $plump-meter-indicator-background:  #1abc9c !default;
 $plump-meter-animation-duration:    1s !default;
