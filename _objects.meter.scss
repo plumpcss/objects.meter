@@ -32,7 +32,7 @@ $plump-enable-meter--animate:       false !default;
 // 3. Set the height of the element to 100% of its parent’s height.
 // 4. Visually hide, but allow the content to be read by assistive devices.
 //
-.#{$plump-namespace}meter
+.#{$plump-namespace}meter,
 %#{$plump-namespace}meter {
 	position: relative;           // [1]
 	height: $plump-meter-height;
@@ -57,7 +57,7 @@ $plump-enable-meter--animate:       false !default;
 	//
 	.#{$plump-namespace}meter--large,
 	%#{$plump-namespace}meter--large {
-		height: double($plump-spacing-unit);
+		height: double($plump-base-spacing-unit);
 	}
 
 }
