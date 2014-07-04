@@ -1,0 +1,148 @@
+///*------------------------------------*\
+//   #METER
+//\*------------------------------------*/
+
+//
+//    Meter object.
+//
+//    <div class="meter">
+//    	<span class="meter__indicator" style="width: 45%">45%</span>
+//    </div>
+//
+//
+
+//    Predefine the variables below in order to alter and enable specific features.
+$plump-meter-height:                $plump-spacing-unit;
+$plump-meter-background:            #eee !default;
+$plump-meter-indicator-background:  #1abc9c !default;
+$plump-meter-animation-duration:    1s !default;
+
+$plump-enable-meter--large:         false !default;
+$plump-enable-meter--vertical:      false !default;
+$plump-enable-meter--animate:       false !default;
+
+
+
+
+
+//
+// 1. Set positioning context.
+// 2. Set absolute position value to remove the element out of normal
+//    flow.
+// 3. Set the height of the element to 100% of its parent’s height.
+// 4. Visually hide, but allow the content to be read by assistive devices.
+//
+.#{$plump-namespace}meter
+%#{$plump-namespace}meter {
+	position: relative;           // [1]
+	height: $plump-meter-height;
+	background: $plump-meter-background;
+
+	&__indicator {
+		position: absolute;       // [2]
+		height: 100%;             // [3]
+		background: $plump-meter-indicator-background;
+		color: transparent;       // [4]
+	}
+}
+
+
+
+
+
+@if ($plump-enable-meter--large == true) {
+
+	//
+	//    Large meter.
+	//
+	.#{$plump-namespace}meter--large,
+	%#{$plump-namespace}meter--large {
+		height: double($plump-spacing-unit);
+	}
+
+}
+
+
+
+
+
+@if ($plump-enable-meter--vertical == true) {
+
+	//
+	//    Vertical meter.
+	//
+	.#{$plump-namespace}meter--vertical,
+	%#{$plump-namespace}meter--vertical {
+		height: 100%;
+
+		.#{$plump-namespace}meter__indicator,
+		%#{$plump-namespace}meter__indicator {
+			bottom: 0;
+			width: 100%;
+		}
+
+	}
+
+}
+
+
+
+
+
+@if ($plump-enable-meter--animate == true) {
+
+	//
+	//    Animate meter with a pseudo element.
+	//
+	// 1. Set absolute position value to remove the pseudo element out of normal
+	//    flow.
+	// 2. Set the width of the pseudo element to 100% of its own width (set
+	//    as an inline style).
+	// 3. Set the height of the pseudo element to 100% of its own height.
+	.#{$plump-namespace}meter--animate,
+	%#{$plump-namespace}meter--animate {
+
+		.#{$plump-namespace}meter__indicator,
+		%#{$plump-namespace}meter__indicator {
+			background: transparent;
+
+			&:before {
+				position: absolute; // [1]
+				width: 100%;        // [2]
+				height: 100%;       // [3]
+				background: $plump-meter-indicator-background;
+				content: '';
+				animation: grow-horizontal $plump-meter-animation-duration ease-out;
+			}
+		}
+	}
+
+	@keyframes grow-horizontal {
+		0% { width: 0; }
+		100% { width: 100%; }
+	}
+
+	@if ($plump-enable-meter--vertical == true) {
+
+		//
+		//    Set the keyframe animation for a vertical meter.
+		//
+		.#{$plump-namespace}meter--vertical.#{$plump-namespace}meter--animate,
+		%#{$plump-namespace}meter--vertical%#{$plump-namespace}meter--animate {
+
+			.#{$plump-namespace}meter__indicator:before,
+			%#{$plump-namespace}meter__indicator:before {
+				bottom: 0;
+				animation-name: grow-vertical;
+			}
+
+		}
+
+		@keyframes grow-vertical {
+			0% { height: 0; }
+			100% { height: 100%; }
+		}
+
+	}
+
+}

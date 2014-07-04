@@ -1,0 +1,21 @@
+{
+  "name": "plumpcss-meter",
+  "version": "0.1.0",
+  "authors": [
+    "Jon Hurrell <jon@plumpdigital.co.uk>"
+  ],
+  "description": "A simple meter object for the plumpcss framework",
+  "main": "_objects.meter.scss",
+  "keywords": [
+    "plumpcss",
+    "oocss",
+    "css",
+    "object"
+  ],
+  "license": "MIT",
+  "dependencies": {
+      "inuit-functions": "latest",
+      "plumpcss-defaults": "latest"
+    },
+  "homepage": "http://www.plumpdigital.co.uk/"
+}
