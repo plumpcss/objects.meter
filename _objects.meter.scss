@@ -29,8 +29,8 @@ $plump-enable-meter--animate:       false !default;
 //    flow.
 // 3. Set the height of the element to 100% of its parent’s height.
 // 4. Visually hide, but allow the content to be read by assistive devices.
-.#{$plump-namespace}o-meter,
-%#{$plump-namespace}o-meter {
+.#{$plump-meter-namespace}o-meter,
+%#{$plump-meter-namespace}o-meter {
 	position: relative;           // [1]
 	height: $plump-meter-height;
 	background: $plump-meter-background;
@@ -50,8 +50,8 @@ $plump-enable-meter--animate:       false !default;
 @if ($plump-enable-meter--large == true) {
 
 	//    Large meter.
-	.#{$plump-namespace}o-meter--large,
-	%#{$plump-namespace}o-meter--large {
+	.#{$plump-meter-namespace}o-meter--large,
+	%#{$plump-meter-namespace}o-meter--large {
 		height: double($plump-base-spacing-unit);
 	}
 
@@ -64,12 +64,12 @@ $plump-enable-meter--animate:       false !default;
 @if ($plump-enable-meter--vertical == true) {
 
 	//    Vertical meter.
-	.#{$plump-namespace}o-meter--vertical,
-	%#{$plump-namespace}o-meter--vertical {
+	.#{$plump-meter-namespace}o-meter--vertical,
+	%#{$plump-meter-namespace}o-meter--vertical {
 		height: 100%;
 
-		.#{$plump-namespace}o-meter__indicator,
-		%#{$plump-namespace}o-meter__indicator {
+		.#{$plump-meter-namespace}o-meter__indicator,
+		%#{$plump-meter-namespace}o-meter__indicator {
 			bottom: 0;
 			width: 100%;
 		}
@@ -91,11 +91,11 @@ $plump-enable-meter--animate:       false !default;
 	// 2. Set the width of the pseudo element to 100% of its own width (set
 	//    as an inline style).
 	// 3. Set the height of the pseudo element to 100% of its own height.
-	.#{$plump-namespace}o-meter--animate,
-	%#{$plump-namespace}o-meter--animate {
+	.#{$plump-meter-namespace}o-meter--animate,
+	%#{$plump-meter-namespace}o-meter--animate {
 
-		.#{$plump-namespace}o-meter__indicator,
-		%#{$plump-namespace}o-meter__indicator {
+		.#{$plump-meter-namespace}o-meter__indicator,
+		%#{$plump-meter-namespace}o-meter__indicator {
 			background: transparent;
 
 			&:before {
@@ -117,11 +117,11 @@ $plump-enable-meter--animate:       false !default;
 	@if ($plump-enable-meter--vertical == true) {
 
 		//    Set the keyframe animation for a vertical meter.
-		.#{$plump-namespace}o-meter--vertical.#{$plump-namespace}o-meter--animate,
-		%#{$plump-namespace}o-meter--vertical%#{$plump-namespace}o-meter--animate {
+		.#{$plump-meter-namespace}o-meter--vertical.#{$plump-meter-namespace}o-meter--animate,
+		%#{$plump-meter-namespace}o-meter--vertical%#{$plump-meter-namespace}o-meter--animate {
 
-			.#{$plump-namespace}o-meter__indicator:before,
-			%#{$plump-namespace}o-meter__indicator:before {
+			.#{$plump-meter-namespace}o-meter__indicator:before,
+			%#{$plump-meter-namespace}o-meter__indicator:before {
 				bottom: 0;
 				animation-name: grow-vertical;
 			}
